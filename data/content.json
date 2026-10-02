@@ -1,0 +1,7 @@
+{
+  "email": "kodas@protonmail.com",
+  "socials": [
+    { "label": "GitHub", "href": "https://github.com/zxkodas" },
+    { "label": "Email", "email": true }
+  ]
+}

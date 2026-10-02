@@ -1,0 +1,12 @@
+# Keep line endings LF in the repository so diffs stay clean and checkouts on
+# Windows do not report every file as modified.
+* text=auto eol=lf
+
+# Binary assets, should they ever be added.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary

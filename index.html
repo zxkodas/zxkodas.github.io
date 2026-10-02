@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>zxkodas — Software Engineer, Santa Fe</title>
+<meta name="description" content="zxkodas — developer from Santa Fe, Argentina. Building focused, dependable software for Windows. TickFence, irok-configurator and more.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="zxkodas — Software Engineer, Santa Fe">
+<meta property="og:description" content="Focused, dependable software for Windows.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23000'/><text x='50' y='71' font-family='-apple-system,Segoe UI,sans-serif' font-size='58' font-weight='700' fill='%23f5f5f7' text-anchor='middle'>zx</text></svg>">
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- Progressive enhancement: content is visible by default. This class arms the
+     hidden-until-revealed state, so if JS is blocked or errors early the page
+     stays fully readable instead of rendering blank. -->
+<script>document.documentElement.className += " js";</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Film grain. Inline SVG turbulence: no network request, and static so the
+     browser never re-rasterises a large blurred region. -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Scroll progress. Driven by transform:scaleX() so it stays on the
+     compositor and never triggers layout. -->
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top">
+      <span class="nav__mark" aria-hidden="true">zx</span>
+      <span class="nav__name">zxkodas</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#work"   data-navlink>Work</a>
+      <a href="#repos"  data-navlink>Repos</a>
+      <a href="#skills" data-navlink>Skills</a>
+      <a href="#about"  data-navlink>About</a>
+    </nav>
+
+    <a class="nav__cta" href="https://github.com/zxkodas" target="_blank" rel="noopener noreferrer">
+      GitHub
+    </a>
+
+    <button class="nav__toggle" id="navToggle" type="button"
+            aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile" id="mobileMenu" hidden>
+    <a href="#work">Work</a>
+    <a href="#repos">Repos</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="https://github.com/zxkodas" target="_blank" rel="noopener noreferrer">GitHub &#8599;</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section class="hero" id="top">
+  <!-- Ambient light. Pure radial-gradients: a radial-gradient already has a
+       soft falloff, so filter:blur() and mix-blend-mode are both unnecessary
+       and were the single biggest compositing cost in the previous build. -->
+  <div class="hero__aura" aria-hidden="true">
+    <span class="aura aura--violet" data-drift></span>
+    <span class="aura aura--cyan"></span>
+  </div>
+  <div class="hero__grid" aria-hidden="true"></div>
+
+  <div class="wrap hero__body">
+    <p class="badge reveal">
+      <span class="dot dot--ok pulse" aria-hidden="true"></span>
+      Available for interesting problems
+    </p>
+
+    <h1 class="h1 reveal" style="--d:.06s">
+      Hi, I&rsquo;m<br><span class="grad">kodas.</span>
+    </h1>
+
+    <p class="lede reveal" style="--d:.14s">
+      I build focused, dependable software for Windows — tools that get out of
+      the way and do one thing properly.
+    </p>
+
+    <p class="body hero__bodytext reveal" style="--d:.20s">
+      Developer from Santa Fe, Argentina. Windows utilities, focus apps and
+      developer tooling — shipped small, made to hold up.
+    </p>
+
+    <div class="cta reveal" style="--d:.26s">
+      <a class="btn btn--primary" href="#work">See my work</a>
+      <a class="btn btn--ghost" href="https://github.com/zxkodas" target="_blank" rel="noopener noreferrer">
+        GitHub
+        <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M8 1 7.2 5.3H2v1.9h4l-1.1 6.2 3.2-4.3h4l-3 3.2 1.4.7 4.5-5.1V7h-3.4L13.2 1H8Z"/></svg>
+      </a>
+    </div>
+
+    <p class="roles reveal" style="--d:.34s">
+      <span class="roles__label">Working in</span>
+      <span class="roles__set">
+        <span>Python</span><span>C#</span><span>Windows tooling</span><span>HTML &amp; CSS</span>
+      </span>
+    </p>
+  </div>
+
+  <a class="scrollcue" href="#work" aria-label="Scroll to featured work">
+    <span class="scrollcue__line"></span>
+  </a>
+</section>
+
+<!-- ══════════════════════ FEATURED WORK ══════════════════════ -->
+<section class="section" id="work">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="eyebrow reveal"><i class="dot dot--cyan" aria-hidden="true"></i>Featured work</p>
+      <h2 class="h2 reveal" style="--d:.06s">Two things I&rsquo;ve actually shipped.</h2>
+      <p class="sub reveal" style="--d:.12s">
+        Both solve a problem I had. Both are open source.
+      </p>
+    </header>
+
+    <div class="featured">
+
+      <!-- ── Project 1 ── -->
+      <article class="project reveal">
+        <div class="project__copy">
+          <p class="project__meta">
+            <i class="dot dot--cyan" aria-hidden="true"></i>
+            <span class="eyebrow">Python &middot; PySide6</span>
+          </p>
+
+          <h3 class="h3">TickFence</h3>
+          <p class="project__tagline">Distraction blocking you can&rsquo;t cheat.</p>
+
+          <p class="body">
+            A focus blocker for Windows that doesn&rsquo;t rely on willpower or an
+            app you can close. TickFence locks the programs and websites you
+            choose until the tasks in TickTick are actually done.
+          </p>
+
+          <ul class="highlights">
+            <li>
+              <span class="highlights__title">Enforcement below the app layer</span>
+              <span class="highlights__body">Runs as a Windows service with Image File Execution Options hooks, so blocked binaries stop launching even if you kill the GUI process.</span>
+            </li>
+            <li>
+              <span class="highlights__title">Real task completion</span>
+              <span class="highlights__body">Unlocks only when the mapped TickTick tasks are checked off. The fence opens on evidence, not on a timer you can cheat.</span>
+            </li>
+            <li>
+              <span class="highlights__title">Websites too</span>
+              <span class="highlights__body">A companion browser extension covers the sites a process-level lock can&rsquo;t reach, so the full distraction surface is covered.</span>
+            </li>
+          </ul>
+
+          <div class="cta cta--left">
+            <a class="btn btn--primary" href="https://github.com/zxkodas/TickFence" target="_blank" rel="noopener noreferrer">
+              View on GitHub
+            </a>
+          </div>
+
+          <ul class="chips">
+            <li>Windows service</li>
+            <li>IFEO enforcement</li>
+            <li>Browser extension</li>
+            <li>TickTick sync</li>
+            <li>GPL-3.0</li>
+          </ul>
+        </div>
+
+        <!-- Mockup is decorative: the story is told in the adjacent copy, so
+             screen readers are not made to read the same thing twice. -->
+        <div class="project__visual" aria-hidden="true" data-tilt>
+          <span class="aura aura--cyan aura--corner"></span>
+          <div class="mock glass">
+            <div class="mock__head">
+              <span class="mock__title">TickFence</span>
+              <span class="mock__badge mock__badge--ok"><i class="dot dot--ok pulse" aria-hidden="true"></i>LOCKED</span>
+            </div>
+            <ul class="mock__rows">
+              <li><span>Steam</span><i class="flag flag--bad"></i></li>
+              <li><span>YouTube</span><i class="flag flag--bad"></i></li>
+              <li><span>Discord</span><i class="flag flag--bad"></i></li>
+              <li><span>Chrome</span><i class="flag flag--ok"></i></li>
+            </ul>
+            <p class="mock__note">2 tasks remaining. Fence opens when TickTick is clear.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── Project 2 ── -->
+      <article class="project project--reverse reveal">
+        <div class="project__copy">
+          <p class="project__meta">
+            <i class="dot dot--violet" aria-hidden="true"></i>
+            <span class="eyebrow">C# &middot; .NET</span>
+          </p>
+
+          <h3 class="h3">irok-configurator</h3>
+          <p class="project__tagline">A launcher for the IROK web driver.</p>
+
+          <p class="body">
+            An unofficial configurator for the IROK web driver. Point it at the
+            driver, adjust the settings the vendor&rsquo;s tooling leaves buried,
+            and get back to work without hunting through files by hand.
+          </p>
+
+          <ul class="highlights">
+            <li>
+              <span class="highlights__title">Unofficial, on purpose</span>
+              <span class="highlights__body">Built around the driver as it actually ships, without waiting on a vendor UI that covers a fraction of the available configuration.</span>
+            </li>
+            <li>
+              <span class="highlights__title">Settings in one place</span>
+              <span class="highlights__body">The options buried across files and dialogs are surfaced into a single launcher so configuration is a two-minute job.</span>
+            </li>
+            <li>
+              <span class="highlights__title">Native Windows</span>
+              <span class="highlights__body">A C# desktop app that feels at home on the platform it targets, instead of a web form in a wrapper.</span>
+            </li>
+          </ul>
+
+          <div class="cta cta--left">
+            <a class="btn btn--primary" href="https://github.com/zxkodas/irok-configurator" target="_blank" rel="noopener noreferrer">
+              View on GitHub
+            </a>
+          </div>
+
+          <ul class="chips">
+            <li>Windows</li>
+            <li>Desktop app</li>
+            <li>Driver tooling</li>
+            <li>MIT</li>
+          </ul>
+        </div>
+
+        <div class="project__visual" aria-hidden="true" data-tilt>
+          <span class="aura aura--violet aura--corner"></span>
+          <div class="mock glass">
+            <div class="mock__head">
+              <span class="mock__title">irok-configurator</span>
+              <span class="mock__badge mock__badge--accent">READY</span>
+            </div>
+            <ul class="mock__rows mock__rows--kv">
+              <li><span>Driver</span><i class="val val--strong">irok-web</i></li>
+              <li><span>Language</span><i class="val">English</i></li>
+              <li><span>Update mode</span><i class="val">Manual</i></li>
+              <li><span>Autostart</span><i class="val">Enabled</i></li>
+            </ul>
+            <div class="mock__actions">
+              <span class="mock__btn mock__btn--solid">Launch driver</span>
+              <span class="mock__btn">Restore</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ REPOS ══════════════════════ -->
+<!-- The cards below are the guaranteed fallback: they ship in the HTML, so the
+     section is never empty without JS and works from file://. js/repos.js
+     replaces them with live data when the fetch succeeds. -->
+<section class="section surface-raised" id="repos">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="eyebrow reveal"><i class="dot dot--amber" aria-hidden="true"></i>Everything else</p>
+      <h2 class="h2 reveal" style="--d:.06s">All public repos.</h2>
+      <p class="sub reveal" style="--d:.12s">
+        Pulled live from GitHub when possible, with a static snapshot as the
+        fallback. New work shows up here on its own.
+      </p>
+    </header>
+
+    <p class="repos__status reveal" data-repos-status>
+      <i class="dot" aria-hidden="true"></i>
+      <span data-repos-label>Static snapshot</span>
+    </p>
+
+    <div class="repos__grid" data-repos-grid>
+      <a class="repo-card reveal" href="https://github.com/zxkodas/TickFence" target="_blank" rel="noopener noreferrer">
+        <div class="repo-card__top">
+          <h3 class="repo-card__name">TickFence</h3>
+          <span class="repo-card__arrow" aria-hidden="true">&#8599;</span>
+        </div>
+        <p class="repo-card__desc">A focus blocker for Windows that enforces itself. Locks apps and sites until your TickTick tasks are done — enforced at the service and IFEO level.</p>
+        <div class="repo-card__meta">
+          <span class="lang"><i class="lang__dot" style="background:#3572A5" aria-hidden="true"></i>Python</span>
+        </div>
+      </a>
+
+      <a class="repo-card reveal" style="--d:.08s" href="https://github.com/zxkodas/irok-configurator" target="_blank" rel="noopener noreferrer">
+        <div class="repo-card__top">
+          <h3 class="repo-card__name">irok-configurator</h3>
+          <span class="repo-card__arrow" aria-hidden="true">&#8599;</span>
+        </div>
+        <p class="repo-card__desc">An unofficial launcher for the IROK web driver — a cleaner way to get the driver running and configured without fighting the stock tooling.</p>
+        <div class="repo-card__meta">
+          <span class="lang"><i class="lang__dot" style="background:#178600" aria-hidden="true"></i>C#</span>
+        </div>
+      </a>
+    </div>
+
+    <p class="foot reveal">
+      Everything is public and MIT-friendly —
+      <a href="https://github.com/zxkodas" target="_blank" rel="noopener noreferrer">browse it on GitHub &#8599;</a>
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════ SKILLS ══════════════════════ -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="eyebrow reveal"><i class="dot dot--cyan" aria-hidden="true"></i>Toolkit</p>
+      <h2 class="h2 reveal" style="--d:.06s">What I reach for.</h2>
+    </header>
+
+    <div class="skills stagger">
+      <div class="skill glass reveal">
+        <h3 class="skill__title">Desktop &amp; Systems</h3>
+        <ul class="skill__list">
+          <li>Python</li>
+          <li>C#</li>
+          <li>Windows Services</li>
+          <li>IFEO</li>
+          <li>PySide6</li>
+        </ul>
+      </div>
+
+      <div class="skill glass reveal">
+        <h3 class="skill__title">Web &amp; Interface</h3>
+        <ul class="skill__list">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Browser Extensions</li>
+          <li>Web APIs</li>
+        </ul>
+      </div>
+
+      <div class="skill glass reveal">
+        <h3 class="skill__title">Tooling &amp; OS</h3>
+        <ul class="skill__list">
+          <li>PowerShell</li>
+          <li>Windows APIs</li>
+          <li>Inno Setup</li>
+          <li>Git</li>
+          <li>GitHub Actions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ ABOUT ══════════════════════ -->
+<section class="section surface-raised" id="about">
+  <div class="wrap about__grid">
+    <div>
+      <p class="eyebrow reveal"><i class="dot dot--violet" aria-hidden="true"></i>About</p>
+      <h2 class="h2 reveal" style="--d:.06s">Software<br>with restraint.</h2>
+
+      <div class="identity reveal" style="--d:.12s">
+        <span class="identity__mark" aria-hidden="true">zx</span>
+        <div>
+          <p class="identity__name">kodas</p>
+          <p class="identity__where">Santa Fe, Argentina</p>
+        </div>
+      </div>
+
+      <p class="body reveal" style="--d:.18s">
+        I like making small tools that solve one problem properly — the kind of
+        software you install once and then stop thinking about. Most of what I
+        build lives on Windows, close to the metal: services, drivers, native
+        interop and enforcement mechanisms.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline__item reveal" style="--d:.06s">
+        <p class="eyebrow">2022 — now</p>
+        <h3 class="timeline__title">Independent developer</h3>
+        <p class="timeline__body">Shipping Windows utilities and focus tooling out of Santa Fe, Argentina. Open to collaborations and problems worth solving.</p>
+      </div>
+      <div class="timeline__item reveal" style="--d:.12s">
+        <p class="eyebrow">Focus</p>
+        <h3 class="timeline__title">Productivity engineering</h3>
+        <p class="timeline__body">Building the tools I wanted for myself: blockers that actually hold, launchers that remove friction.</p>
+      </div>
+      <div class="timeline__item reveal" style="--d:.18s">
+        <p class="eyebrow">Ongoing</p>
+        <h3 class="timeline__title">Learning in public</h3>
+        <p class="timeline__body">Small tools, shipped and iterated. Most live in public repos on GitHub, with everything readable in the source.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats stagger">
+      <div class="stat reveal">
+        <b class="stat__num" data-count="3" data-stat="repos">0</b>
+        <span class="stat__label">Public repositories</span>
+      </div>
+      <div class="stat reveal">
+        <b class="stat__num" data-count="6" data-stat="languages">0</b>
+        <span class="stat__label">Languages shipped in</span>
+      </div>
+      <div class="stat reveal">
+        <b class="stat__num" data-count="2022">0</b>
+        <span class="stat__label">On GitHub since</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CTA ══════════════════════ -->
+<section class="cta-band">
+  <div class="wrap cta-band__inner">
+    <h2 class="h2 reveal">Let&rsquo;s build<br>something sharp.</h2>
+    <p class="sub reveal" style="--d:.08s">
+      Have a Windows problem worth solving, or an idea that needs a prototype?
+      My inbox is open.
+    </p>
+    <div class="cta cta--left cta--band reveal" style="--d:.14s">
+      <a class="cta-email" href="mailto:kodas@protonmail.com" data-email>kodas@protonmail.com</a>
+    </div>
+    <p class="foot reveal" style="--d:.2s">
+      <a class="btn btn--ghost" href="https://github.com/zxkodas" target="_blank" rel="noopener noreferrer">Or find me on GitHub &#8599;</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer class="sitefoot">
+  <div class="wrap foot__inner">
+    <p class="foot__note">Built by hand — no frameworks, no trackers. Santa Fe, Argentina.</p>
+    <ul class="foot__links" data-socials>
+      <li><a href="https://github.com/zxkodas" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="mailto:kodas@protonmail.com" data-email>Email</a></li>
+    </ul>
+    <p class="foot__fine">
+      &copy; <span id="year">2026</span> zxkodas &middot;
+      <a href="https://github.com/zxkodas" target="_blank" rel="noopener noreferrer">github.com/zxkodas</a>
+    </p>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/repos.js" defer></script>
+</body>
+</html>
